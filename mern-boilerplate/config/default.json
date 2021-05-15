@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://progg:rootroot@cluster0.pp3ho.mongodb.net/mernshopping?retryWrites=true&w=majority",
+    "jwtSecret": "sl_myJwtSecret"
+}
