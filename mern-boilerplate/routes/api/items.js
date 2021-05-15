@@ -1,9 +1,8 @@
-import { Router } from 'express';
-import auth from '../../middleware/auth';
-// Item Model
-import Item from '../../models/Item';
 
-const router = Router();
+const auth = require('../../middleware/auth');
+// Item Model
+const Item = require('../../models/Item');
+const router = require('express').Router();
 
 /**
  * @route   GET api/items
@@ -64,4 +63,4 @@ router.delete('/:id', auth, async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

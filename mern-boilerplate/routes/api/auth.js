@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import bcrypt from 'bcryptjs';
-import config from '../../config';
-import jwt from 'jsonwebtoken';
-import auth from '../../middleware/auth';
+const router = require('express').Router();
+const bcrypt = require('bcryptjs');
+const config = require('../../config');
+const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth');
 // User Model
-import User from '../../models/User';
+const User = require('../../models/User');
 
 const { JWT_SECRET } = config;
 const router = Router();
