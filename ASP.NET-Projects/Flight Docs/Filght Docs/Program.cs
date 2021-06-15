@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlightDocs
+namespace Filght_Docs
 {
     public class Program
     {
