@@ -30,9 +30,17 @@ namespace Filght_Docs.Service
                 {
                     return null;
                 }
-               
+
+                DateTime Today = new DateTime(2018, 6, 19);
+
+                var IntervalHoursNextDueDate = Today.AddHours(DaysRemaingByHourInterval ?? 0);
+
+                //NextDueDate = MIN(IntervalMonthsNextDueDate, IntervalHoursNextDueDate) OR Null
+
+                var NextDueDate = DateTime.Compare(IntervalMonthsNextDueDate, IntervalHoursNextDueDate);
+
             }
-            return AircraftResponseDTO;
+            
         }
     }
 }
