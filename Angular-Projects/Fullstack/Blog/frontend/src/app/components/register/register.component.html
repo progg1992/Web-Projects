@@ -31,3 +31,9 @@
         <button mat-flat-button color="primary" [disabled]="!registerForm.valid" type="submit">Register</button>
     </div>
 </form>
+
+<div style="text-align: center;">
+    <h3 *ngIf="registerForm.invalid">Form Contains Folowing Errors</h3>
+    <small *ngIf="registerForm.get('password').hasError('passwordInvalid')">Password does not contain a number</small> <br>
+    <small *ngIf="registerForm.hasError('passwordsNotMatching')">Passwords do not match</small>
+</div>
