@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from "typeorm";
+import { BlogEntryEntity } from "../../blog/model/blog.entry.entity";
+import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, OneToMany } from "typeorm";
 import { UserRole } from "./user.interface";
 
 
@@ -28,6 +29,9 @@ export class UserEntity {
 
     @Column({nullable: true})
     profileImage: string;
+
+    @OneToMany(type => BlogEntryEntity, blogEntryEntity => blogEntryEntity.author)
+    blogEntries: BlogEntryEntity[];
 
     @BeforeInsert()
     emailToLowerCase() {
