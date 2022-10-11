@@ -3,8 +3,10 @@
 import { UserEntity } from "src/user/models/user.entity";
 import { BeforeUpdate, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
-
 @Entity('blog_entry')
+=======
+@Entity()
+
 export class BlogEntryEntity {
     @PrimaryGeneratedColumn()
     id: number;
