@@ -6,9 +6,7 @@ export const ButtonClickEvents = {
 };
 
 
-export function click(el: DebugElement | HTMLElement,
-                      eventObj: any = ButtonClickEvents.left): void {
-
+export function click(el: DebugElement | HTMLElement, eventObj: any = ButtonClickEvents.left): void {
   if (el instanceof HTMLElement) {
     el.click();
   } else {
