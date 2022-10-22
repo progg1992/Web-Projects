@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build:prod": "ng build --prod",
+    "build:prod": "ng build --configuration production",
     "start:prod": "http-server ./dist -a localhost -p 4200",
     "build-and-start:prod": "run-s build:prod start:prod",
     "e2e": "start-server-and-test build-and-start:prod http://localhost:4200 cypress:run"
@@ -35,6 +35,7 @@
     "cypress": "^9.1.1",
     "express": "^4.16.2",
     "http-server": "^14.0.0",
+    "karma-coverage": "^2.2.0",
     "moment": "^2.22.2",
     "npm-run-all": "^4.1.5",
     "rxjs": "6.5.4",
