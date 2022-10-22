@@ -4,10 +4,16 @@ import { LoggerService } from "./logger.service";
 describe('CalculatorService', () => {
 
     it('should add two numbers', () => {
-        const calculator = new CalculatorService(new LoggerService());
+        // Create fake implementation of Calc Service Dependencies
+        const logger = jasmine.createSpyObj('LoggerService', ["log"]);
+
+        const calculator = new CalculatorService(logger);
+        
         const result = calculator.add(2, 2);
 
         expect(result).toBe(4);
+
+        expect(logger.log).toHaveBeenCalledTimes(1);
 
     });
 
