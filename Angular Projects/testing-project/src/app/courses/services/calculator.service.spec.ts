@@ -8,7 +8,7 @@ describe('CalculatorService', () => {
         const logger = jasmine.createSpyObj('LoggerService', ["log"]);
 
         const calculator = new CalculatorService(logger);
-        
+
         const result = calculator.add(2, 2);
 
         expect(result).toBe(4);
