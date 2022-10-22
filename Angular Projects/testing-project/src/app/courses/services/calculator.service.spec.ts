@@ -1,27 +1,48 @@
+import { TestBed } from "@angular/core/testing";
 import { CalculatorService } from "./calculator.service";
 import { LoggerService } from "./logger.service";
 
 describe('CalculatorService', () => {
 
-    it('should add two numbers', () => {
-        // Create fake implementation of Calc Service Dependencies
-        const logger = jasmine.createSpyObj('LoggerService', ["log"]);
+    let calculator: CalculatorService,
+        loggerSpy: any;
+    
+    // runs before all tests
+    beforeEach(() => {
+        console.log("Calling Before Each");
 
-        const calculator = new CalculatorService(logger);
+        // Create fake implementation of Calc Service Dependencies
+        loggerSpy = jasmine.createSpyObj('LoggerService', ["log"]);
+
+        TestBed.configureTestingModule({
+            providers: [
+                CalculatorService,
+                // Provide loggerSpy via Dependency Injection
+                {provide: LoggerService, useValue: loggerSpy}
+            ]
+        })
+        calculator = TestBed.get(CalculatorService);
+    })
+
+    it('should add two numbers', () => {
+        console.log('Calling add test');
 
         const result = calculator.add(2, 2);
 
         expect(result).toBe(4);
 
-        expect(logger.log).toHaveBeenCalledTimes(1);
+        expect(loggerSpy.log).toHaveBeenCalledTimes(1);
 
     });
 
     it('should subtract two numbers', () => {
-        const calculator = new CalculatorService(new LoggerService());
+        console.log('Calling Subtract test');
+
         const result = calculator.subtract(2, 2);
 
         expect(result).toBe(0, 'unexpected subtraction result');
+
+        expect(loggerSpy.log).toHaveBeenCalledTimes(1);
 
     })
 })
